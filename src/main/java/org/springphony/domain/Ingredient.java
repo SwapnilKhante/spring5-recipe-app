@@ -2,6 +2,7 @@ package org.springphony.domain;
 
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -9,6 +10,7 @@ import java.math.BigDecimal;
 
 @Getter @Setter
 @Entity
+@NoArgsConstructor
 public class Ingredient {
 
   @Id
@@ -23,4 +25,12 @@ public class Ingredient {
 
   @OneToOne(fetch = FetchType.EAGER)
   private UnitOfMeasure uom;
+
+  public Ingredient(String description, BigDecimal amount, UnitOfMeasure uom, Recipe recipe) {
+    this.description = description;
+    this.amount = amount;
+    this.uom =uom;
+    this.recipe=recipe;
+
+  }
 }

@@ -1,17 +1,17 @@
 package org.springphony.domain;
 
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
 
-@Getter @Setter
+@Data
+@EqualsAndHashCode(exclude = {"recipe"})
 @Entity
-@NoArgsConstructor
 public class Ingredient {
+
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,11 +26,12 @@ public class Ingredient {
   @OneToOne(fetch = FetchType.EAGER)
   private UnitOfMeasure uom;
 
-  public Ingredient(String description, BigDecimal amount, UnitOfMeasure uom, Recipe recipe) {
+  public Ingredient() {
+  }
+
+  public Ingredient(String description, BigDecimal amount, UnitOfMeasure uom) {
     this.description = description;
     this.amount = amount;
     this.uom =uom;
-    this.recipe=recipe;
-
   }
 }

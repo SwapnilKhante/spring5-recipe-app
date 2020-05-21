@@ -12,7 +12,7 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @DataJpaTest
-class UnitOfMeasureRepositoryTest {
+class UnitOfMeasureRepositoryIT {
 
   @Autowired
   UnitOfMeasureRepository unitOfMeasureRepository;
